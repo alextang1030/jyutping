@@ -21,12 +21,10 @@ var jyutPing = {
     var result = "";
     var stringLength = target.length;
   	var charCode = 0;
-    console.log(stringLength);
   	for (var i  = 0; i < stringLength; i++) {
   		charCode = target.charCodeAt(i);
   		if (127 < charCode) {
   			var temp = escape(target.charAt(i));
-        console.log(temp);
   			result += temp.replace('%u', 'U+');
   		} else {
   			result += target.charAt(i);
@@ -36,26 +34,50 @@ var jyutPing = {
   },
   searchForPron : function(find,callback){
     $set = jyutPing;
+    $set.customercallback = callback;
     google.load('visualization', '1', {
         callback: function () {
             var query = new google.visualization.Query($set.dataUrl());
             query.setQuery("select * where B = '"+$set.toUnicode(find.trim())+"'");
-            query.send(callback);
+            query.send($set.searchCallback);
         }
     });
   },
   searchForChar : function(find,callback){
     $set = jyutPing;
+    $set.customercallback = callback;
     google.load('visualization', '1', {
         callback: function () {
             var query = new google.visualization.Query($set.dataUrl());
-            query.setQuery("select * where D = '"+find+"'");
-            query.send(callback);
+            query.setQuery("select * where D = '"+find.trim()+"'");
+            query.send($set.searchCallback);
         }
     });
   },
+  customercallback : function(response){},
   searchCallback : function(response){
-    console.log("callback");
-    console.log(response.getDataTable());
+    var data = {
+      response_code : 0,
+      response_msg : "",
+      response_data : []
+    };
+    if (!response.getDataTable().Nf.length)
+    {
+      data.response_code = 1;
+      data.response_msg = "data not found";
+    }
+    else {
+      $.each(response.getDataTable().Nf,function(key,value){
+        data.response_data.push({
+          "data_char": (value.c[0] === null) ? "": value.c[0].v,
+          "data_english": (value.c[2] === null) ? "": value.c[2].v,
+          "data_pron": (value.c[3] === null) ? "": value.c[3].v,
+          "data_source": (value.c[4] === null) ? "": value.c[4].v,
+          "data_words": (value.c[5] === null) ? "": value.c[5].v,
+          "data_senses": (value.c[6] === null) ? "": value.c[6].v
+        });
+      });
+    }
+    $set.customercallback(data);
   }
 }

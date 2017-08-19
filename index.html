@@ -2,45 +2,74 @@
 <head>
   <meta name="viewport" content="width=device-width, user-scalable=0"/>
   <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" ></script>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript" src="assets/js/model.js" ></script>
   <link rel="stylesheet" href="assets/css/style.min.css" type="text/css" />
 </head>
-<body>
-<div id="dataSource"></div>
-<div id="jyut-ping-search">
-  <div class="col-md-6">
-    <div class="search-box">
-      <form id="char-to-pron">
-        <div class="form-group">
-          <label>Char</label>
-          <input type="text" id="search-char">
+<body class="wrapper">
+
+  <header>
+    <a href="#" class="logo">Jyut Ping</a>
+    <ul class="nav-menu">
+      <li class="nav-menu-item"><a href="#">粵拼表</a></li>
+      <li class="nav-menu-item"><a href="#">粵拼查字</a></li>
+    </ul>
+  </header>
+  <div class="page-container">
+    <section id="landing">
+      <div class="about">
+        <h1 class="title">粵拼係乜嘢</h1>
+        <div class="description">
+
+          <p>粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。粵拼簡介。</p>
         </div>
-        <input type="submit" value="search">
-      </form>
-    </div>
-    <div class="result" id="char-result">
+      </div>
+    </section>
+    <section id="jyutping-table">
+      <div class="finals-container">
+        <table class="table finals-table">
 
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="search-box">
-      <form id="pron-to-char">
-        <div class="form-group">
-          <label>Pron</label>
-          <input type="text" id="search-pron">
+        </table>
+      </div>
+    </section>
+    <section id="jyutping-search">
+      <div class="search-wrapper">
+        <div class="search-header">
+          <ul class="search-trigger">
+            <li class="active" data-tab="#search-by-char">以字搜拼</li>
+            <li data-tab="#search-by-pron">以拼搜字</li>
+          </ul>
         </div>
-        <input type="submit" value="search">
-      </form>
-    </div>
-    <div class="result" id="pron-result">
+        <div class="search-content">
+          <div class="search-box active" id="search-by-char">
+            <div class="form-container">
+              <form class="search-form" id="char-form">
+                <input type="text" name="search">
+                <button class="btn btn-default btn-ping">搜尋</button>
+              </form>
+            </div>
+            <div class="search-result char-result">
 
-    </div>
+            </div>
+          </div>
+          <div class="search-box" id="search-by-pron">
+            <div class="form-container">
+              <form class="search-form" id="pron-form">
+                <input type="text" name="search">
+                <button class="btn btn-default btn-ping">搜尋</button>
+              </form>
+            </div>
+            <div class="search-result pron-result">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</div>
-<form data-trigger="google-search">
+  <footer>
 
-</form>
+  </footer>
 <script type="text/javascript" src="assets/js/script.js" ></script>
 </body>
 </html>
