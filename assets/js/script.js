@@ -49,11 +49,19 @@ $(document).ready(function(){
       }
     });
   });
+
+  $('.search-trigger > li').on('click',function(e){
+    var target = $(this).attr("data-tab");
+    $(".search-trigger > li.active").removeClass("active");
+    $(".search-box").removeClass("active");
+    $(this).addClass("active");
+    $(target).addClass("active");
+  });
   if ($(window).scrollTop() > 200)
   {
     $('header').addClass("small");
   }
-  
+
   $(window).on('scroll',function(e){
   	if ($(window).scrollTop() > 200)
   	{
