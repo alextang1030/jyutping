@@ -38,7 +38,7 @@ var jyutPing = {
     google.load('visualization', '1', {
         callback: function () {
             var query = new google.visualization.Query($set.dataUrl());
-            query.setQuery("select * where B like %"+$set.toUnicode(find.trim())+"%");
+            query.setQuery("select * where B like '%"+$set.toUnicode(find.trim())+"%'");
             query.send($set.searchCallback);
         }
     });
@@ -49,7 +49,7 @@ var jyutPing = {
     google.load('visualization', '1', {
         callback: function () {
             var query = new google.visualization.Query($set.dataUrl());
-            query.setQuery("select * where D like %"+find.trim()+"%");
+            query.setQuery("select * where D like '%"+find.trim()+"%'");
             query.send($set.searchCallback);
         }
     });
