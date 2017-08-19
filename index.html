@@ -1,0 +1,46 @@
+<html lang="zh_hk">
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=0"/>
+  <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" ></script>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="assets/js/model.js" ></script>
+
+</head>
+<body>
+<div id="dataSource"></div>
+<div id="jyut-ping-search">
+  <div class="col-md-6">
+    <div class="search-box">
+      <form id="char-to-pron">
+        <div class="form-group">
+          <label>Char</label>
+          <input type="text" id="search-char">
+        </div>
+        <input type="submit" value="search">
+      </form>
+    </div>
+    <div class="result" id="char-result">
+
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="search-box">
+      <form id="pron-to-char">
+        <div class="form-group">
+          <label>Pron</label>
+          <input type="text" id="search-pron">
+        </div>
+        <input type="submit" value="search">
+      </form>
+    </div>
+    <div class="result" id="pron-result">
+
+    </div>
+  </div>
+</div>
+<form data-trigger="google-search">
+
+</form>
+<script type="text/javascript" src="assets/js/script.js" ></script>
+</body>
+</html>
