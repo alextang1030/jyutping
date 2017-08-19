@@ -87,7 +87,81 @@ body > header.small .nav-menu .nav-menu-item {
 }
 
 .page-container #jyutping-table {
-  display: none;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px;
+}
+
+.page-container #jyutping-table .wrapper {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.page-container #jyutping-table .wrapper .table {
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  height: 400px;
+}
+
+.page-container #jyutping-table .wrapper .table .header,
+.page-container #jyutping-table .wrapper .table .foooter {
+  width: 100%;
+}
+
+.page-container #jyutping-table .wrapper .table .content {
+  display: block;
+}
+
+.page-container #jyutping-table .wrapper .table .content .item {
+  float: left;
+  position: relative;
+  width: 80px;
+}
+
+.page-container #jyutping-table .wrapper .table .content .item:empty {
+  height: 80px;
+}
+
+.page-container #jyutping-table .wrapper .table .content .item > .description {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.page-container #jyutping-table .wrapper .table .content .item > .symbol {
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.page-container #jyutping-table .wrapper .table .content .item > .symbol.soft {
+  font-weight: 100;
+  color: #999;
+}
+
+.page-container #jyutping-table .wrapper .table.initials-container {
+  width: 320px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-container {
+  width: 160px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-tail-container {
+  width: 240px;
+}
+
+.page-container #jyutping-table .wrapper .table.tone-container {
+  width: 80px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-container .content > div, .page-container #jyutping-table .wrapper .table.vowel-tail-container .content > div {
+  width: 80px;
+  float: left;
+  position: relative;
 }
 
 .page-container #jyutping-search {
