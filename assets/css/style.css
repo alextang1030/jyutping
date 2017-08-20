@@ -19,20 +19,24 @@ body > header {
   top: 0;
   left: 0;
   z-index: 999;
-  height: 100px;
   width: 100%;
-  height: 100px;
+  line-height: 60px;
 }
 
 body > header .logo {
   font-size: 40px;
-  line-height: 60px;
   padding: 5px 10px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 320px) {
+  body > header .logo {
+    font-size: 30px;
+  }
 }
 
 body > header .nav-menu {
@@ -51,8 +55,6 @@ body > header .nav-menu {
 body > header .nav-menu .nav-menu-item {
   font-size: 18px;
   display: inline-block;
-  padding: 5px 10px;
-  line-height: 60px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -60,17 +62,40 @@ body > header .nav-menu .nav-menu-item {
   transition: all 0.3s ease-in-out;
 }
 
-body > header.small .logo {
-  height: 60px;
-  font-size: 20px;
+body > header .nav-menu .nav-menu-item a {
+  display: block;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 320px) {
+  body > header .nav-menu .nav-menu-item {
+    font-size: 14px;
+  }
+}
+
+body > header.small {
   line-height: 40px;
+}
+
+@media screen and (max-width: 320px) {
+  body > header.small {
+    line-height: 30px;
+  }
+}
+
+body > header.small .logo {
+  height: 100%;
+  font-size: 20px;
 }
 
 body > header.small .nav-menu .nav-menu-item {
   font-size: 14px;
-  display: inline-block;
-  padding: 5px 10px;
-  line-height: 40px;
+}
+
+@media screen and (max-width: 320px) {
+  body > header.small .nav-menu .nav-menu-item {
+    font-size: 12px;
+  }
 }
 
 .page-container {
