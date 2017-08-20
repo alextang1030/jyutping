@@ -132,9 +132,48 @@ body > header.small .nav-menu .nav-menu-item {
   vertical-align: top;
   min-height: 600px;
   text-align: center;
-  -webkit-box-shadow: 10px 8px 30px -7px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: 10px 8px 30px -7px rgba(0, 0, 0, 0.53);
-  box-shadow: 10px 8px 30px -7px rgba(0, 0, 0, 0.53);
+}
+
+.page-container #jyutping-table .wrapper .table.initials-container {
+  width: 320px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-container {
+  width: 160px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-tail-container {
+  width: 240px;
+}
+
+.page-container #jyutping-table .wrapper .table.tone-container {
+  width: 80px;
+}
+
+.page-container #jyutping-table .wrapper .table.vowel-container .content > div, .page-container #jyutping-table .wrapper .table.vowel-tail-container .content > div {
+  width: 80px;
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .page-container #jyutping-table .wrapper .table {
+    width: 320px !important;
+  }
+  .page-container #jyutping-table .wrapper .table.vowel-container .content > div {
+    width: 160px;
+  }
+  .page-container #jyutping-table .wrapper .table.vowel-container .content > div > div:first-child {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-container #jyutping-table .wrapper .table {
+    min-height: 400px;
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -180,29 +219,6 @@ body > header.small .nav-menu .nav-menu-item {
 .page-container #jyutping-table .wrapper .table .content .item > .symbol.soft {
   font-weight: 100;
   color: #999;
-}
-
-.page-container #jyutping-table .wrapper .table.initials-container {
-  width: 320px;
-}
-
-.page-container #jyutping-table .wrapper .table.vowel-container {
-  width: 160px;
-}
-
-.page-container #jyutping-table .wrapper .table.vowel-tail-container {
-  width: 240px;
-}
-
-.page-container #jyutping-table .wrapper .table.tone-container {
-  width: 80px;
-}
-
-.page-container #jyutping-table .wrapper .table.vowel-container .content > div, .page-container #jyutping-table .wrapper .table.vowel-tail-container .content > div {
-  width: 80px;
-  vertical-align: top;
-  display: inline-block;
-  position: relative;
 }
 
 .page-container #jyutping-search {

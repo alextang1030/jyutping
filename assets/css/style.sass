@@ -123,9 +123,36 @@ body
         vertical-align: top
         min-height: 600px
         text-align: center
-        -webkit-box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
-        -moz-box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
-        box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
+        // -webkit-box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
+        // -moz-box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
+        // box-shadow: 10px 8px 30px -7px rgba(0,0,0,0.53)
+        &.initials-container
+          width: 320px
+        &.vowel-container
+          width: 160px
+        &.vowel-tail-container
+          width: 240px
+        &.tone-container
+          width: 80px
+        &.vowel-container,
+        &.vowel-tail-container
+          .content
+            > div
+              width: 80px
+              vertical-align: top
+              display: inline-block
+              position: relative
+        @media screen and (max-width: 768px)
+          width: 320px !important
+          &.vowel-container
+            .content
+              > div
+                width: 160px
+                > div:first-child
+                  width: 160px
+        @media screen and (max-width: 600px)
+          min-height: 400px
+          margin-bottom: 30px
         @media screen and (max-width: 320px)
           margin: 20px 0
         .header,
@@ -153,22 +180,6 @@ body
               &.soft
                 font-weight: 100
                 color: #999
-        &.initials-container
-          width: 320px
-        &.vowel-container
-          width: 160px
-        &.vowel-tail-container
-          width: 240px
-        &.tone-container
-          width: 80px
-        &.vowel-container,
-        &.vowel-tail-container
-          .content
-            > div
-              width: 80px
-              vertical-align: top
-              display: inline-block
-              position: relative
   #jyutping-search
     width: 100%
     min-height: 100vh
