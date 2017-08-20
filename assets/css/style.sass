@@ -1,3 +1,33 @@
+@mixin transition-amin($value)
+	-webkit-transition: $value
+	-moz-transition: $value
+	-ms-transition: $value
+	-o-transition: $value
+	transition: $value
+
+@mixin transform-amin($anim)
+	-moz-transform: $anim
+	-ms-transform: $anim
+	-o-transform: $anim
+	transform: $anim
+	-webkit-transform: $anim
+
+@mixin keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
+@mixin animation($content)
+	-webkit-animation: $content
+	-moz-animation: $content
+	-o-animation: $content
+	animation: $content
+
 *
   -webkit-box-sizing: border-box
   -moz-box-sizing: border-box
@@ -26,17 +56,20 @@ body
       font-size: 40px
       line-height: 60px
       padding: 5px 10px
+      @include transition-amin(all 0.3s ease-in-out)
     .nav-menu
       float: right
       font-size: 0
       padding: 0
       margin: 0
       list-style: none
+      @include transition-amin(all 0.3s ease-in-out)
       .nav-menu-item
         font-size: 18px
         display: inline-block
         padding: 5px 10px
         line-height: 60px
+        @include transition-amin(all 0.3s ease-in-out)
     &.small
       .logo
         height: 60px

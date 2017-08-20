@@ -28,6 +28,11 @@ body > header .logo {
   font-size: 40px;
   line-height: 60px;
   padding: 5px 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 body > header .nav-menu {
@@ -36,6 +41,11 @@ body > header .nav-menu {
   padding: 0;
   margin: 0;
   list-style: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 body > header .nav-menu .nav-menu-item {
@@ -43,6 +53,11 @@ body > header .nav-menu .nav-menu-item {
   display: inline-block;
   padding: 5px 10px;
   line-height: 60px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 body > header.small .logo {

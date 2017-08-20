@@ -49,7 +49,19 @@ $(document).ready(function(){
       }
     });
   });
-
+  $('.logo').on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+  });
+  $('.nav-menu-item > a').on('click',function(e){
+    e.preventDefault();
+    var target = $(this).attr("href");
+    $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 500);
+  });
   $('.search-trigger > li').on('click',function(e){
     var target = $(this).attr("data-tab");
     $(".search-trigger > li.active").removeClass("active");
