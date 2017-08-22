@@ -1,51 +1,60 @@
+function form_result(target,data)
+{
+  target.empty();
+  $.each(data,function(i,v){
+    target.append(
+      $("<div/>").addClass("items")
+        .append($('<div class="item-char"/>').html("<span>"+v.data_char+"</span>"))
+        .append($('<div class="item-pron"/>').html("<label>讀音</label><span>"+v.data_pron+"</span>"))
+        .append($('<div class="item-senses"/>').html("<label>詞性</label><span>"+v.data_senses+"</span>"))
+        .append($('<div class="item-words"/>').html("<label>配詞</label><span>"+v.data_words+"</span>"))
+        .append($('<div class="item-source"/>').html("<label>來源</label><span>"+v.data_source+"</span>"))
+        .append($('<div class="item-english"/>').html("<label>英語</label><span>"+v.data_english+"</span>"))
+    );
+  });
+}
+var model;
 $(document).ready(function(){
+  model = new SpreadsheetsModel({
+    "api_key":"AIzaSyBdJsthRvTU2R6NqTp-Ty9v53Smza3IduE",
+    "client_id":"1oPSzxFPYCQaja_C-mAi5nu-thceSQc3LzXEnkLthSy4",
+    "header":2,
+    "ranges": "A1:G",
+    "columns":{
+      "data_char":"A",
+      "data_unicode":"B",
+      "data_english":"C",
+      "data_pron":"D",
+      "data_source":"E",
+      "data_words":"F",
+      "data_senses":"G"
+    }
+  });
   $("#char-form").on('submit',function(e){
     e.preventDefault();
     var code = $(this).find('[name="search"]').val();
-    jyutPing.searchForPron(code,function(response){
+    model.where("date_char",code).send(function(response){
       if (response.response_code == 1)
       {
         alert("Not found!");
         return false;
       }
       else {
-        $(".char-result").empty();
-        $.each(response.response_data,function(i,v){
-          $(".char-result").append(
-            $("<div/>").addClass("items")
-              .append($('<div class="item-char"/>').html("<span>"+v.data_char+"</span>"))
-              .append($('<div class="item-pron"/>').html("<label>讀音</label><span>"+v.data_pron+"</span>"))
-              .append($('<div class="item-senses"/>').html("<label>詞性</label><span>"+v.data_senses+"</span>"))
-              .append($('<div class="item-words"/>').html("<label>配詞</label><span>"+v.data_words+"</span>"))
-              .append($('<div class="item-source"/>').html("<label>來源</label><span>"+v.data_source+"</span>"))
-              .append($('<div class="item-english"/>').html("<label>英語</label><span>"+v.data_english+"</span>"))
-          );
-        });
+        form_result($(".char-result"),response_data);
       }
     });
   });
   $("#search-by-pron").on('submit',function(e){
     e.preventDefault();
     var code = $(this).find('[name="search"]').val();
-    jyutPing.searchForChar(code,function(response){
+    model.where("date_char",code).send(function(response){
       if (response.response_code == 1)
       {
         alert("Not found!");
         return false;
       }
       else {
-        $(".pron-result").empty();
-        $.each(response.response_data,function(i,v){
-          $(".pron-result").append(
-            $("<div/>").addClass("items")
-            .append($('<div class="item-char"/>').html("<span>"+v.data_char+"</span>"))
-            .append($('<div class="item-pron"/>').html("<label>讀音</label><span>"+v.data_pron+"</span>"))
-            .append($('<div class="item-senses"/>').html("<label>詞性</label><span>"+v.data_senses+"</span>"))
-            .append($('<div class="item-words"/>').html("<label>配詞</label><span>"+v.data_words+"</span>"))
-            .append($('<div class="item-source"/>').html("<label>來源</label><span>"+v.data_source+"</span>"))
-            .append($('<div class="item-english"/>').html("<label>英語</label><span>"+v.data_english+"</span>"))
-          );
-        });
+        form_result($(".pron-result"),response_data);
       }
     });
   });
