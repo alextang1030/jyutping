@@ -13,48 +13,47 @@ function form_result(target,data)
     );
   });
 }
-var model;
+var model = new SpreadsheetsModel({
+  "api_key":"AIzaSyBdJsthRvTU2R6NqTp-Ty9v53Smza3IduE",
+  "client_id":"1oPSzxFPYCQaja_C-mAi5nu-thceSQc3LzXEnkLthSy4",
+  "header":1,
+  "ranges": "A1:G",
+  "columns":{
+    "data_char":"A",
+    "data_unicode":"B",
+    "data_english":"C",
+    "data_pron":"D",
+    "data_source":"E",
+    "data_words":"F",
+    "data_senses":"G"
+  }
+});
 $(document).ready(function(){
-  model = new SpreadsheetsModel({
-    "api_key":"AIzaSyBdJsthRvTU2R6NqTp-Ty9v53Smza3IduE",
-    "client_id":"1oPSzxFPYCQaja_C-mAi5nu-thceSQc3LzXEnkLthSy4",
-    "header":2,
-    "ranges": "A1:G",
-    "columns":{
-      "data_char":"A",
-      "data_unicode":"B",
-      "data_english":"C",
-      "data_pron":"D",
-      "data_source":"E",
-      "data_words":"F",
-      "data_senses":"G"
-    }
-  });
   $("#char-form").on('submit',function(e){
     e.preventDefault();
     var code = $(this).find('[name="search"]').val();
-    model.where("date_char",code).send(function(response){
+    model.where("data_char",code).send(function(response){
       if (response.response_code == 1)
       {
         alert("Not found!");
         return false;
       }
       else {
-        form_result($(".char-result"),response_data);
+        form_result($(".char-result"),response.response_data);
       }
     });
   });
   $("#search-by-pron").on('submit',function(e){
     e.preventDefault();
     var code = $(this).find('[name="search"]').val();
-    model.where("date_char",code).send(function(response){
+    model.like("data_pron",code).send(function(response){
       if (response.response_code == 1)
       {
         alert("Not found!");
         return false;
       }
       else {
-        form_result($(".pron-result"),response_data);
+        form_result($(".pron-result"),response.response_data);
       }
     });
   });
